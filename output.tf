@@ -25,6 +25,7 @@ output "rds_instnace_identifier" {
 }
 
 output "psql_connection_command" {
+  sensitive   = true
   value       = "psql --host=${split(":", module.database.db_endpoint)[0]} --port=5432 --username=${var.db_username} --dbname=postgres"
   description = "psql command to connect to the RDS instance from the EC2 instance"
 }

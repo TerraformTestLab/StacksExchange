@@ -1,12 +1,12 @@
 variable "project_name" {
   type        = string
-  default     = "stacks-exchange" # Replace with your desired project name
+  default = "stacks-exchange" # Replace with your desired project name
   description = "The name of the project"
 }
 
 variable "aws_region" {
   type        = string
-  default     = "ap-south-1" # Mumbai region # Replace with your desired region
+  default = "ap-south-1" # Mumbai region # Replace with your desired region
   description = "AWS region to deploy the resources"
 }
 
@@ -24,13 +24,16 @@ variable "public_subnet_cidrs" {
 
 variable "db_username" {
   type        = string
+  sensitive   = true
+  nullable    = false
   # default     = "some-great-user-name" # replace with your desired username
   description = "Username for the RDS instance"
 }
 
 variable "db_password" {
-  type      = string
-  sensitive = true
+  type        = string
+  sensitive   = true
+  nullable    = false
   description = "Password for the RDS instance"
   # default     = "some-higly-secure-password" # default password for the RDS instance, 
                                                # replace with your desired password, 
